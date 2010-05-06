@@ -5,7 +5,8 @@
 (defn dump-file
   "Create dump file name for a test run"
   []
-  (File. ".circumspec/raw/" (.toString (java.util.Date.))))
+  (File. (str ".circumspec/raw/" (.replace (.toString (java.util.Date.)) \: \_)))) 
+  ; Replace colons with underscores for windows compatibility
 
 (defn dump-results
   "Spit results into a file, return java.io.File instance."
